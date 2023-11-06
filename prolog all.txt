@@ -1,0 +1,266 @@
+prolog
+
+
+
+queires
+
+square([],[]).
+
+square([H|T], [H1|T1]) :-
+    H1 is H * H,
+    square(T, T1).
+
+cube([],[]).
+cube([H|T],[H1|T1]):- H1 is  H *H * H , cube(T,T1).
+
+
+square_root([],[]).
+square_root([H|T],[H1|T1]) :- H1 is sqrt(H), square_root(T,T1).
+
+
+
+sum_even([],0).
+sum_even([H|T],Sum):-0 is H mod 2 , sum_even(T , Reset) , Sum is H + Reset .
+sum_even([_|T],Sum):- sum_even(T,Sum).
+
+
+
+sum_odd([], 0).
+sum_odd([H|T], Sum) :-
+    1 is H mod 2,
+    sum_odd(T, Rest),
+    Sum is H + Rest.
+sum_odd([_|T], Sum) :-
+    sum_odd(T, Sum).
+
+
+product_even([], 1).
+product_even([H|T], Product) :-
+    0 is H mod 2,
+    product_even(T, Rest),
+    Product is H * Rest.
+product_even([_|T], Product) :-
+    product_even(T, Product).
+
+
+
+product_odd([], 1).
+product_odd([H|T], Product) :-
+    1 is H mod 2,
+    product_odd(T, Rest),
+    Product is H * Rest.
+product_odd([_|T], Product) :-
+    product_odd(T, Product).
+
+
+is_even(N) :-
+    N mod 2 =:= 0.
+
+is_odd(N) :-
+    N mod 2 =:= 1.
+
+
+exceution .
+
+?-  square([1,2,4,5,6], S).
+S = [1, 4, 16, 25, 36].
+
+?- 
+% c:/users/sonid/onedrive/documents/prolog/pcpf compiled 0.00 sec, 0 clauses
+?- cube([1,2,3],c).
+false.
+
+?- cube([1,2,3],C).
+C = [1*1*1, 2*2*2, 3*3*3].
+
+?- cube([1,2,3],C).
+C = [1*1*1, 2*2*2, 3*3*3].
+
+?- 
+% c:/users/sonid/onedrive/documents/prolog/pcpf compiled 0.02 sec, 0 clauses
+?- cube([1,2,3],C).
+C = [1, 8, 27].
+
+?- 
+% c:/users/sonid/onedrive/documents/prolog/pcpf compiled 0.00 sec, 2 clauses
+?- square_root([1,4,9],sqrt).
+false.
+
+?- square_root([1,4,9],SQRT).
+SQRT = [1.0, 2.0, 3.0]
+
+?- sum_even([1,2,3,4,5,6],SumEven).
+SumEven = o.
+
+?- 
+% c:/users/sonid/onedrive/documents/prolog/pcpf compiled 0.00 sec, 0 clauses
+?- sum_even([1,2,3,4,5,6],SumEven).
+SumEven = 12 
+% c:/users/sonid/onedrive/documents/prolog/pcpf compiled 0.00 sec, 11 clauses
+- is_even(4).
+true.
+
+?- is_even(5).
+false.
+
+?- is_odd(3).
+true.
+
+?- is_odd(6).
+false.
+
+?- 
+|    is_even(4).
+true.
+
+?- is_odd(54).
+false.
+
+?- sum_odd(sum_oddsum_odd(sum_odd
+ERROR: Stream user_input:171:33 Syntax error: Unexpected end of file
+?- sum_odd([1,2,3,4,5,6],SumOdd).
+SumOdd = 9 .
+
+?- product_even([1,2,3,4,5,6],ProductEven).
+ProductEven = 48 .
+
+?- product_odd([1,2,3,4,5,6],ProductOdd).
+ProductOdd = 15 
+
+
+
+
+
+
+-x-x-x-x-x-x-x-x-x-x-x-x-x--x-x-x-x-x-x
+
+querie
+
+
+is_even(N) :-
+    N mod 2 =:= 0.
+
+is_odd(N) :-
+    N mod 2 =:= 1.
+
+selling_price(Cost , Profit , Sellingprice):- Sellingprice is Cost + Profit .
+
+cost_price(Sellingprice,Profit , Costprice):- Costprice is Sellingprice - Profit.
+
+percent_profit(Cost , Sellingprice , Profitpercentage):- Profit is Sellingprice - Cost , Profitpercentage is (Profit/Cost)*100 .
+
+percentage_loss(Cost, Sellingprice, Losspercentage) :-
+    Loss is Cost - Sellingprice,
+    Losspercentage is (Loss / Cost) * 100.
+
+
+ans
+
+?- selling_price(100,20,SP).
+SP = 120.
+
+?- cost_price(120,20,CP).
+CP = 100.
+
+?- percent_profit(100,120,PP).
+PP = 20.0.
+
+?- percentage_loss(120,100,LP).
+LP = 16.666666666666664.
+
+?- 
+
+
+x-x-x-x-x-x-x-x-x-x-x-x-----------------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------
+
+
+member([X],[X|_]).
+member(X,[_|T]) :- member(X,T).
+
+
+
+fib(0, 0).
+fib(1, 1).
+fib(N, F) :- N > 1, N1 is N - 1, N2 is N - 2, fib(N1, F1), fib(N2, F2), F is F1 + F2.
+
+
+
+
+npr(_,0,1).
+npr(N,R,Result):- N>0,R>0,N1 is N-1,R1 is R-1 , npr(N1, R1, Result1),Result is N * Result1.
+
+factorial(0, 1).
+factorial(N, Result) :- N > 0, N1 is N - 1, factorial(N1, Result1), Result is N * Result1.
+
+ncr(N, R, Result) :- factorial(N, FN), factorial(R, FR), NR is N - R, factorial(NR, FNR), Result is FN // (FR * FNR).
+
+
+areaoftriangle(A , B ,C ,Area ):-
+S is (A+B+C)/2,
+Area is sqrt(S*((S-A)*(S-B)*(S-C))).
+
+sumofpositive([], 0).
+sumofpositive([H|T], Sum) :- H =< 0, sumofpositive(T, Sum).
+sumofpositive([H|T], Sum) :- H > 0, sumofpositive(T, Sum1), Sum is H + Sum1.
+
+
+% Addition
+sumlist([], 0).
+sumlist([H | T], Sum) :- sumlist(T, Rest), Sum is H + Rest.
+
+% Subtraction
+subtractlist([], 0).
+subtractlist([H | T], Result) :- subtractlist(T, Rest), Result is Rest - H.
+
+% Multiplication
+multiplylist([], 1).
+multiplylist([H | T], Result) :- multiplylist(T, Rest), Result is H * Rest.
+
+% Division
+dividelist([H], H).
+dividelist([H | T], Result) :- dividelist(T, Rest), Result is Rest / H.
+
+
+
+multiplyneg([], 1).
+multiplyneg([H | T], Result) :- H < 0, multiplneg(T, Rest), Result is H * Rest.
+multiplyneg([_ | T], Result) :- multiplyneg(T, Result).
+
+
+prod_odd([], 0).
+prod_odd([H|T], prod) :-
+    1 is H mod 2,
+    prod_odd(T, Rest),
+    prod is H * Rest.
+prod_odd([_|T], prod) :-
+    prod_odd(T, prod).
+
+% Length of a list
+length1([], 0).
+length1([_|T], Len) :- length1(T, Len1), Len is Len1 + 1.
+
+% Append lists
+append([], L, L).
+append([H|T], L2, [H|L3]) :- append(T, L2, L3).
+
+% Sublist check
+sublist(S, L) :- append(_, L2, L), append(S, _, L2).
+
+% Access element at specific index (0-based)
+nth0(0, [H|_], H).
+nth0(N, [_|T], Element) :- N > 0, N1 is N - 1, nth0(N1, T, Element).
+
+add(X, Y, Sum) :- Sum is X + Y.
+
+
+% Multiply each element of the list by a factor X
+multiply_list([], _, []).
+multiply_list([H|T], X, [H1|T1]) :- H1 is H * X, multiply_list(T, X, T1).
+
+% Add a number X to each element of the list
+add_to_list([], _, []).
+add_to_list([H|T], X, [H1|T1]) :- H1 is H + X, add_to_list(T, X, T1).
+
+
+
+

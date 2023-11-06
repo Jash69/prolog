@@ -1,0 +1,127 @@
+1.Square the even elements of an list
+mySqr :: [Int] -> [Int]
+mySqr [] = []
+mySqr (x:xs) =
+    if (mod x 2) == 0
+    then x * x : mySqr xs
+    else x : mySqr xs
+
+main :: IO ()
+main = do
+    let result = mySqr [4, 9, 36]
+    print result
+	
+2.PercentageLoss
+percentageLoss :: Float -> Float -> Float
+percentageLoss cp sp = if cp>sp
+then (cp-sp) * 100 / cp
+else -1
+
+main = do
+putStrLn "Enter Cost Price:"
+ain <- getLine
+let a = (read ain :: Float)
+putStrLn "Enter Sell Price:"
+bin <- getLine
+let b = (read bin :: Float)
+
+let loss = percentageLoss a b
+putStr "Loss in Percentage:"
+print(loss)
+
+3. Square all Positive elements of a List
+mySquare :: [Int] -> [Int]
+mySquare [] = []
+mySquare (x:xs) = if x>=0
+then x*x : mySquare xs
+else mySquare xs
+
+main = do
+let result = mySquare [-1,3,4,-10,0]
+print(result)
+
+4.Simple Interest
+
+simpleInterest :: Float -> Float -> Float -> Float
+simpleInterest total principal time = ((total - principal) / (principal * time) )* 100 
+
+main :: IO ()
+main = do
+    putStrLn "Enter Principal Amount:"
+    ain <- getLine
+    let principal = read ain :: Float
+
+    putStrLn "Enter Total Amount:"
+    bin <- getLine
+    let total = read bin :: Float
+
+    putStrLn "Enter Time:"
+    cin <- getLine
+    let time = read cin :: Float
+
+    let simple = simpleInterest total principal time
+    putStrLn ("Simple Interest: " ++ show simple ++ "%")
+	
+5.Lenght of list,Member
+
+
+myLenght :: [a] -> Int
+myLenght [] = 0
+myLenght (x:xs) = 1 + myLenght xs
+
+myMember :: (Eq a) => [a] -> a -> Bool
+myMember [] _ = False
+myMember (x:xs) e = if e == x
+then True
+else myMember xs e
+
+main=do
+let result = myLenght [2,3,48979,398098,38998]
+let result1 = myMember ["Om","Pawaskar"] "Om"
+print result1
+
+
+6.fibonaci, factorial
+
+
+myfactorial :: Int -> Int
+myfactorial 0 = 1
+myfactorial x = if(x>0)
+then x * myfactorial (x-1)
+else -1
+
+myfibonaci :: Int -> Int
+myfibonaci 1 = 0
+myfibonaci 2 = 1
+myfibonaci x = if(x>0)
+then myfibonaci (x-1) + myfibonaci (x-2)
+else -1
+
+myfibonacciSeries :: Int -> [Int]
+myfibonacciSeries 1 = [0]
+myfibonacciSeries 2 = [0, 1]
+myfibonacciSeries x = if(x>0)
+then myfibonacciSeries (x - 1) ++ [last (myfibonacciSeries (x - 1)) + last (myfibonacciSeries (x - 2))]
+else [-1]
+
+main=do
+let result = myfactorial 5
+if(result == -1)
+then putStrLn "Enter Valid No."
+else print result
+
+let fibo = myfibonaci 5
+if(fibo == -1)
+then putStrLn "Enter Valid No."
+else print fibo
+
+let fiboseries = myfibonacciSeries 10
+if(fiboseries == [-1])
+then putStrLn "Enter Valid No."
+else print fiboseries
+
+
+
+
+
+

@@ -1,0 +1,1291 @@
+SALARY CALCULATIONS
+CODE:
+import java.util.Scanner;
+public class Salary
+{
+ public static void main(String[] args)
+ {
+ System.out.println("Enter a name:");
+ Scanner sc = new Scanner(System.in);
+ String name = sc.nextLine();
+ System.out.println("Enter the basic salary:");
+ int basic = sc.nextInt();
+ System.out.println("Enter the ID:");
+ int ID = sc.nextInt();
+ Double perc = 1/100.0;
+ Double DA = 0.7*basic;
+ Double HRA = 0.3*basic;
+ int CCA = 240;
+ Double PF = 0.1*basic;
+ int PT = 100;
+ Double gross = basic+DA+HRA+CCA-PF;
+ Double net = gross-PF-PT;
+ System.out.println("The da is" +DA);
+ System.out.println("The name of the employee is " +name);
+ System.out.println("The ID of the employee is " +ID);
+ System.out.println("The gross salary is "+gross);
+ System.out.println("The net salary is " +net);
+ }
+}
+
+
+
+
+
+
+
+1.switch case
+import java.util.Scanner;
+public class SwitchCase {
+ public static void main(String[] args) {
+ while (true) {
+ Scanner input = new Scanner(System.in);
+ System.out.println("1:Armstrong");
+ System.out.println("2:Factorial");
+ System.out.println("3:Palindrome");
+ System.out.println("4:Fibonacci series");
+ System.out.println("5:Exit.");
+ System.out.println("Enter your choice:");
+ int option = input.nextInt();
+ int n, m, digit, arm = 0, rev = 0, i, fact = 1, t1 = 0, t2 = 1,
+NextTerm;
+ switch (option) {
+ case 1:
+ System.out.println("Enter any number:");
+ n = input.nextInt();
+ m = n;
+ while (m != 0) {
+ digit = m % 10;
+ arm = arm + digit * digit * digit;
+ m = m / 10;
+ }
+ if (arm == n) {
+ System.out.println("Armstrong Number.");
+ } else {
+ System.out.println("Not an armstrong number.");
+ }
+ break;
+ case 2:
+ System.out.println("Enter any number:");
+ n = input.nextInt();
+ for (i = 1; i <= n; i++) {
+ fact = fact * i;
+ }
+ System.out.println("Factorial of number: " + fact);
+ break;
+ case 3:
+ System.out.println("Enter any number:");
+ n = input.nextInt();
+ m = n;
+ while (m != 0) {
+ digit = m % 10;
+ rev = rev * 10 + digit;
+ m = m / 10;
+ }
+ if (rev == n) {
+ System.out.println("Palindrome Number.");
+ } else {
+ System.out.println("Not a Palindrome number.");
+ }
+ break;
+ case 4:
+ System.out.println("Enter the number of terms for
+Fibonacci series:");
+ n = input.nextInt();
+ System.out.println("Fibonacci series till " + n + " terms:");
+ for (i = 1; i <= n; i++) {
+ System.out.print(t1 + ", ");
+ NextTerm = t1 + t2;
+ t1 = t2;
+ t2 = NextTerm;
+ }
+ break;
+ case 5:
+ System.out.println("Exiting program.");
+ System.exit(0);
+ break;
+ default:
+ System.out.println("Invalid case. Try again.");
+ break;
+ }
+ }
+ }
+}
+
+
+
+
+
+
+
+
+
+JAVA LAB ASSG. NO.3
+1.java calculator gui
+Code:
+import java.awt.*;
+class calci1 extends Frame
+{
+calci1()
+{
+Frame f=new Frame ();
+f.setLayout(null);
+f.setVisible(true);
+f.setTitle("calculator");
+f.setSize(500,500);
+TextField t=new TextField();
+t.setBounds(100,40,277,50);
+f.add(t);
+Button b1=new Button("9");
+b1.setBounds(100,95,65,65);
+f.add(b1);
+Button b2=new Button("8");
+b2.setBounds(170,95,65,65);
+f.add(b2);
+Button b3=new Button("7");
+b3.setBounds(240,95,65,65);
+f.add(b3);
+Button b4=new Button("+");
+b4.setBounds(310,95,65,65);
+f.add(b4);
+Button b5=new Button("6");
+b5.setBounds(100,165,65,65);
+f.add(b5);
+Button b6=new Button("5");
+b6.setBounds(170,165,65,65);
+f.add(b6);
+Button b7=new Button("4");
+b7.setBounds(240,165,65,65);
+f.add(b7);
+Button b8=new Button("-");
+b8.setBounds(310,165,65,65);
+f.add(b8);
+Button b9=new Button("3");
+b9.setBounds(100,235,65,65);
+f.add(b9);
+Button b10=new Button("2");
+b10.setBounds(170,235,65,65);
+f.add(b10);
+Button b11=new Button("1");
+b11.setBounds(240,235,65,65);
+f.add(b11);
+Button b12=new Button("*");
+b12.setBounds(310,235,65,65);
+f.add(b12);
+Button b13=new Button(".");
+b13.setBounds(100,305,65,65);
+f.add(b13);
+Button b14=new Button("0");
+b14.setBounds(170,305,65,65);
+f.add(b14);
+Button b15=new Button("=");
+b15.setBounds(240,305,65,65);
+f.add(b15);
+Button b16=new Button("/");
+b16.setBounds(310,305,65,65);
+f.add(b16);
+}
+public static void main(String args[])
+{
+calci1 f=new calci1();
+}
+}
+Output:
+2.mini calculator
+import java.awt.*;
+import java.awt.event.*;
+class calc implements ActionListener {
+ Frame f=new Frame ();
+ Button b1 = new Button("add");
+ Button b2 = new Button("subtract");
+ Button b3 = new Button("multiply");
+ Button b4 = new Button("divide");
+ Button b5 = new Button("modulo");
+ Button b6 = new Button("cancel");
+ TextField t1 = new TextField(20);
+ TextField t2 = new TextField(20);
+ TextField t3= new TextField(20);
+ Label i1 = new Label("First number :");
+ Label i2 = new Label("Second number:");
+ Label i3 = new Label("Result:");
+ calc (){
+ b1.setBounds(200,300,60,30);
+ f.add(b1);
+ b2.setBounds(260,300,60,30);
+ f.add(b2);
+ b3.setBounds(320,300,60,30);
+ f.add(b3);
+ b4.setBounds(380,300,60,30);
+ f.add(b4);
+ b5.setBounds(440,300,60,30);
+ f.add(b5);
+ b6.setBounds(500,300,60,30);
+ f.add(b6);
+ i1.setBounds(100,100,150,20);
+ f.add(i1);
+ i2.setBounds(100,150,150,20);
+ f.add(i2);
+ i3.setBounds(100,200,150,20);
+ f.add(i3);
+ t1.setBounds(300,100,150,20);
+ f.add(t1);
+ t2.setBounds(300,150,150,20);
+ f.add(t2);
+ t3.setBounds(300,200,150,20);
+ f.add(t3);
+ b1.addActionListener(this);
+ b2.addActionListener(this);
+ b3.addActionListener(this);
+ b4.addActionListener(this);
+ b5.addActionListener(this);
+ f.setSize(600,600);
+ f.setLayout(null);
+ f.setVisible(true);
+ }
+ public void actionPerformed(ActionEvent e){
+ int n1=Integer.parseInt(t1.getText());
+ int n2=Integer.parseInt(t2.getText());
+ if(e.getSource()==b1){
+ t3.setText(String.valueOf(n1+n2));
+ }
+ if(e.getSource()==b2){
+ t3.setText(String.valueOf(n1-n2));
+ }
+ if(e.getSource()==b3){
+ t3.setText(String.valueOf(n1*n2));
+ }
+ if(e.getSource()==b4){
+ t3.setText(String.valueOf(n1/n2));
+ }
+ if(e.getSource()==b5){
+ t3.setText(String.valueOf(n1%n2));
+ }
+ if(e.getSource()==b6){
+ System.exit(0);
+ }
+ }
+ public static void main(String args []){
+ new calc();
+ }
+}
+output:
+output1:
+output2:
+NAME : Darshan soni
+BAtCh : s23
+rOLL NO. :
+115
+suBjECt :
+jAVA LAB
+TOPIC : student form
+studENt fOrM
+import javax.swing.*; import java.awt.event.*;
+class Studentform extends JFrame implements
+ActionListener
+{
+JLabel l1,l2,l3,l4,l5;
+JTextField tx1,tx2;
+JRadioButton rb1,rb2;
+JComboBox cb;
+JCheckBox cb1,cb2,cb3;
+JButton b;
+JTextArea area;
+Studentform()
+{
+JFrame f = new
+JFrame("STUDENT FORM");
+JLabel l1 = new
+JLabel("Name:");
+l1. setBounds(20,20,80,30);
+tx1 = new JTextField();
+tx1.setBounds(100,20,150,30);
+f.add(l1);
+f.add(tx1);
+JLabel l2 = new JLabel("Mobile
+No.");
+l2.setBounds(20,70,80,30);
+tx2 = new JTextField();
+tx2.setBounds(100,70,150,30);
+f.add(l2);
+f.add(tx2);
+JLabel l3 = new
+JLabel("Gender");
+l3.setBounds(20,120,80,30);
+rb1 = new
+JRadioButton("Male");
+rb1.setBounds(100,120,60,30);
+rb2 = new
+JRadioButton("Female");
+rb2.setBounds(180,120,100,30);
+Output
+[Grab your reader’s attention
+with a great quote from the
+document or use this space to
+emphasize a key point. To
+place this text box anywhere
+on the page, just drag it.]
+ButtonGroup bg = new
+ButtonGroup();
+bg.add(rb1);
+bg.add(rb2);
+f.add(rb1);
+f.add(rb2);
+f.add(l3);
+JLabel l4 = new JLabel("Age");
+l4.setBounds(20,165,80,30);
+String
+age[]={"18","19","20","21","22"};
+cb = new JComboBox(age);
+cb.setBounds(100,170,90,20);
+f.add(l4);
+f.add(cb);
+JLabel l5 = new
+JLabel("Hobbies");
+l5.setBounds(20,215,50,30);
+f.add(l5); cb1
+= new JCheckBox
+("Reading");
+cb1.setBounds(80,220,80,20);
+cb2 = new JCheckBox
+("singing");
+cb2.setBounds(160,220,80,20);
+cb3 = new JCheckBox
+("Dancing");
+cb3.setBounds(250,220,100,20);
+f.add(cb1);
+f.add(cb2);
+f.add(cb3);
+JButton b = new JButton
+("Submit");
+b.setBounds(140,280,75,20);
+f.add(b);
+area = new JTextArea();
+area.setBounds(30,320,320,100);
+f.add(area);
+//---------------------
+b.addActionListener(this);
+
+setDefaultCloseOperation(EXIT_ON_CLOSE);
+ f.setSize(400,500);
+ f.setLayout(null);
+ f.setVisible(true);
+}
+public void
+actionPerformed(ActionEvent e)
+{
+String name =
+tx1.getText();
+String mobile =
+tx2.getText();
+String gender =
+rb1
+.isSelected()?
+"Male":rb2.isSelected()?"Female":"-";
+String age =
+cb.getItemAt(cb.getSelectedIndex()).toString();
+String hobby =
+"";
+if(cb1.isSelected())
+{
+hobby="Reading";
+}
+if(cb2.isSelected())
+{
+hobby=hobby+"
+"+"singing";
+}
+if(cb3.isSelected())
+{
+hobby =
+hobby+"
+"+"dancing";
+}
+
+ area.setText("Name:"+name+"\n"+"Mobile
+Number:"+mobile+"\n"+"Gender:"+gender+"\n"
++"AGE:"+age+"\n"+"Hobbies:"+hobby);
+}
+public static
+void main (String[] args)
+{
+new
+Studentform();
+}
+}
+
+
+
+
+
+TOPIC : NOTEPAD
+NOTEPAD
+import javax.swing.*; import java.awt.event.*;
+public class notepad implements
+ActionListener
+{
+JFrame f;
+JMenuBar mb;
+JMenu file, edit, help;
+JMenuItem cut, copy, paste,
+selectAll,save,newfile,rename,print;
+JTextArea ta;
+notepad ()
+{
+f=new JFrame("NOTEPAD");
+mb=new JMenuBar();
+f.setJMenuBar (mb);
+f.add (mb); file=new
+JMenu("FILE"); edit=new
+JMenu("EDIT");
+help=new JMenu("HELP");
+mb.add(file); mb.add(edit);
+mb.add(help); cut=new
+JMenuItem("Cut"); copy=new
+JMenuItem("Copy"); paste=new
+JMenuItem("Paste");
+selectAll=new
+JMenuItem("Select
+All");
+edit.add(cut);
+edit.add(copy)
+;
+edit.add (paste);
+edit.add(selectAll); save=new
+JMenuItem("Save");
+newfile=new JMenuItem("New
+file");
+rename=new
+JMenuItem("Rename");
+print=new JMenuItem("Print");
+file.add(save);
+file.add(newfile);
+file.add (rename);
+file.add(print);
+cut.addActionListener(this);
+copy.addActionListener(this);
+OUTPU
+T
+
+
+paste.addActionListener(this);
+selectAll.addActionListener(this);
+ta=new JTextArea ();
+ta.setBounds (20,20,250,230);
+f.add(ta);
+f.setLayout (null);
+f.setSize (300,300);
+f.setVisible(true);
+}
+public void actionPerformed
+(ActionEvent e)
+{
+if (e.getSource()==cut)
+{ ta.cut();
+}
+if (e.getSource()==copy)
+{ ta.copy();
+}
+if (e.getSource()==paste)
+{ ta.paste();
+}
+if (e.getSource()==selectAll)
+{ ta.selectAll();
+} } public static void
+main(String
+args[])
+{ new notepad ();
+}
+}
+
+NAME : Darshan soni
+BATCH : S23
+ROLL NO. : 115
+SUBJECT : JAVA LAB
+TOPIC : METHOD OVERLOADING
+
+
+Darshan soni 115 s23 constructor
+ test2(){
+ System.out.println("default constructor");
+ }
+ test2(int a , int b){
+ int y = a+b;
+ System.out.println(y);
+ }
+ test2(int a , int b , int c){
+ int y = a+b+c;
+ System.out.println(y);
+ }
+}
+public class constructor_ass {
+ public static void main(String[] args) {
+ test2 obj = new test2();
+ test2 obj1 = new test2(1, 2);
+ test2 obj2 = new test2(5, 06, 07);
+
+ }
+
+
+}
+Output:
+default constructor
+3
+18
+NAME : Darshan soni
+BATCH : S23
+ROLL NO. : 115
+SUBJECT : JAVA LAB
+TOPIC : INHERITANCE
+
+
+INTERFACE Darshan soni 115 s23
+EXECUTABLE CODE
+interface Vehicle{
+void brake(); void
+tyre();
+}
+
+class Bike implements Vehicle{
+ public void brake(){System.out.println("Bike brakes are
+proper");}
+ public void tyre(){System.out.println("TYres are
+proper");} }
+class bicycle implements Vehicle{
+ public void brake(){System.out.println("Bike brakes are
+proper");}
+ public void tyre(){System.out.println("TYres are
+proper");} }
+class car implements Vehicle{
+ public void brake(){System.out.println("Bike brakes are
+proper");}
+ public void tyre(){System.out.println("TYres are
+proper");}
+}
+class interfacing{
+ public static void main(String[]args){
+Bike a = new Bike();
+ a.brake();
+ a.tyre(); car b =
+new car();
+ b.brake();
+ b.tyre(); bicycle c = new
+bicycle();
+ c.brake();
+ c.tyre();
+}
+}
+OUTPUT
+Bike brakes are proper TYres
+are proper
+Bike brakes are proper
+TYres are proper
+Bike brakes are proper
+TYres are proper
+NAME : Darshan soni
+BATCH : S23
+ROLL NO. : 115
+SUBJECT : JAVA LAB
+AIM : EXCEPTION
+HANDLING
+
+EXCEPTION HANDLING
+import java.util.*;
+public class exception
+{
+public static void main(String args[])
+{
+try
+{
+int d=50/0; //may
+show exception
+int a[]={10,6,8,5};
+System.out.println(a[10]);
+d=a[3]/0; //may show
+exception
+}
+catch(Exception e)
+{
+System.out.println("ArrayIndexOut
+OfBoundsException");
+}
+OUTPUT
+ArrayIndexOutOfBoundsException
+8
+rest of code
+finally
+{
+int ar[]={8};
+System.out.println(ar[0]);
+}
+ System.out.println("rest of code");
+}
+}
+Darshan soni 115 S23
+PACKAGES
+Executable Code:
+Package Creation:
+A) package
+letmecalculate;
+public class Calculator
+{
+public int add (int a, int b)
+{
+return a+b;
+}
+public int sub (int a, int b)
+{
+return a-b;
+}
+public int fact (int n)
+{ int fact =
+1; if(n!=0)
+{
+for (int i=1;i<=n;i++)
+{ fact =
+fact*i;
+}
+return fact;
+}
+return 1 ;
+}
+public static void main(String[] args){
+} }
+Package Utilisation:
+import letmecalculate.*;
+public class Demo {
+public static void main (String [] args)
+{
+Calculator obj = new Calculator();
+Calc obj1 = new Calc();
+System.out.println("The addition of 2 numbers is : " + obj.add(10,20));
+System.out.println("The subtraction of 2 numbers is : " + obj.sub(20,10));
+System.out.println("The multiplication of 2 numbers is : " + obj1.mult(10,20));
+System.out.println("The division of 2 numbers is : " + obj1.div(20,10));
+System.out.println("The factorial of the number is : " + obj.fact(5));
+} }
+Output: -
+The addition of 2 numbers is: 30
+The subtraction of 2 numbers is: 10
+The multiplication of 2 numbers is: 200
+The division of 2 numbers is: 2 The
+factorial of the number is: 120
+Darshan soni 115 s23
+VECTORS AND STRINGS
+EXECUTABLE CODE import
+java.util.ArrayList; import
+java.util.Vector;
+ public class vector {
+ public static void main(String[]
+args) {
+
+ Vector v = new Vector();
+ v.add(0,"Hello");
+ v.add(1,"This");
+ v.add(2,"Is");
+ v.add(3,"A");
+ v.add(4,"Vector");
+ v.add(5,"Tutuorial");
+ ArrayList arr=new ArrayList();
+ arr.add("Happy");
+arr.add("Learning");
+
+ v.addAll(arr);
+System.out.println("Size of this vector
+is:"+v.size());
+Vector v_clone=new Vector();
+v_clone=(Vector)v.clone();
+if(v_clone.equals(v))
+{
+System.out.println("They are same!!");
+}
+else{
+System.out.println("They are not same");
+}
+System.out.println("Vector is:"+v_clone);
+if(v.contains("Happy"))
+System.out.println("Your vector Contains
+Happy");
+
+System.out.println("Element at index
+2:"+v.get(4));
+System.out.println("Learning is at
+Index:"+v.indexOf("Learning"));
+ if(v.isEmpty())
+{
+System.out.println("Your vector Is Empty");
+}
+System.out.println("Last Index
+is:"+v.lastIndexOf("Learning"));
+
+System.out.println("First Element
+is:"+v.firstElement());
+System.out.println("Last Element
+is:"+v.lastElement());
+v.clear();
+System.out.println("Size of this vector
+is:"+v.size());
+//Strings
+String s1 = "THIS & THIS IS S1";
+String s2 = "this is s2";
+String s3 = "s3 is this ";
+String s4 = " S4 IS THIS";
+//charAt
+System.out.println("Char at index 5(sixth
+position): "+s1.charAt(5));
+System.out.println("Char at index 6(seventh
+position): "+s2.charAt(5));
+System.out.println("Char at index 7(eighth
+position): "+s3.charAt(7));
+System.out.println("Char at index 5(sixth
+position): "+s4.charAt(5));
+//concatenate
+System.out.println("After concatenate, it
+becomes: "+s1.concat(" & "+s3));
+//comparison
+System.out.println("Comparing s1 and s4 ignoring
+case: "+s1.equalsIgnoreCase(s4));
+System.out.println("Comparing s2 and s3 with
+case: "+s2.equals(s3));
+//length checking
+System.out.println("Checking length of s1:
+"+s1.length());
+System.out.println("Checking length of s2:
+"+s2.length());
+System.out.println("Checking length of s3:
+"+s3.length());
+System.out.println("Checking length of s4:
+"+s4.length());
+//replace
+System.out.println("replacing 'this' with
+'that': "+s1.replace("THIS","THAT"));
+System.out.println("replacing in s4:
+"+s4.replace("IS","NO"));
+//substring
+System.out.println("Substring of s1:
+"+s1.substring(6));
+System.out.println("Substring of s4:
+"+s4.substring(5,11));
+//convertingCase
+System.out.println("changing case of s2:
+"+s2.toUpperCase());
+System.out.println("changing case of s4:
+"+s4.toLowerCase());
+//searchingInDiffString
+System.out.println("searching s2 in s1:
+"+s1.contains(s2));
+//compareTo
+System.out.println("comparison using compareTo:
+"+s1.compareTo(s2));
+System.out.println("comparison using
+compareToIgnoreCase:
+"+s3.compareToIgnoreCase(s4)); //indexOf
+System.out.println("indexOf :
+"+s1.indexOf("THIS"));
+System.out.println("lastIndexOf :
+"+s1.lastIndexOf("THIS"));//lastIndexOf is also
+there
+//trim
+System.out.println("trimming s4:-"+s4.trim());
+System.out.println("without trimming s4 is:-
+"+s4);
+ }
+}
+OUTPUT
+Size of this vector is:8 They
+are same!!
+Vector is:[Hello, This, Is, A, Vector,
+Tutuorial, Happy, Learning]
+Your vector Contains Happy
+Element at index 2:Vector
+Learning is at Index:7
+Last Index is:7
+First Element is:Hello
+Last Element is:Learning
+Size of this vector is:0
+Char at index 5(sixth position): &
+Char at index 6(seventh position): i
+Char at index 7(eighth position): h
+Char at index 5(sixth position): S
+After concatenate, it becomes: THIS & THIS IS S1
+& s3 is this
+Comparing s1 and s4 ignoring case: false
+Comparing s2 and s3 with case: false
+Checking length of s1: 17
+Checking length of s2: 10
+Checking length of s3: 12 Checking
+length of s4: 11
+replacing 'this' with 'that': THAT & THAT IS S1
+replacing in s4: S4 NO THNO Substring of
+s1: THIS IS S1 Substring of s4: S THIS
+changing case of s2: THIS IS S2 changing
+case of s4: s4 is this searching s2 in
+s1: false comparison using compareTo: -32
+comparison using compareToIgnoreCase: 83
+indexOf : 0 lastIndexOf : 7 trimming s4:-
+S4 IS THIS
+without trimming s4 is:- S4 IS THIS
+NAME : darshan soni
+BATCH : S23
+ROLL NO. : 115
+SUBJECT : JAVA LAB
+AIM :
+MULTITHREADING
+
+MULTITHREADING
+
+class ayush extends Thread
+{
+public void run()
+{
+for (int
+i=1;i<=5;i++)
+{
+Thread t1=
+Thread.currentThread();
+//System.out.println(t1.getName()
+);
+System.out.println(5*i);
+System.out.print("\n");
+try
+{
+Thread.sleep(50);
+}
+catch(Exception
+e){};
+}
+OUTPUT
+true
+true
+5
+7
+10
+15
+20
+25
+14
+21
+28
+}
+}
+class ayusht extends Thread
+{
+public void run()
+{
+for (int
+i=1;i<=5;i++)
+{
+Thread t2=
+Thread.currentThread();
+//System.out.println(t2.getName()
+);
+35
+false
+false
+
+System.out.println(7*i);
+System.out.print("\n");
+try
+{
+Thread.sleep(500);
+}
+catch(Exception
+e){};
+}
+}
+}
+class multithreadingdemo
+{
+public static void main(String args[])
+{
+ayush a1=new
+ayush();
+ayusht
+a2=new ayusht();
+a1.start();
+a2.start();
+System.out.println(a1.isAlive());
+System.out.println(a2.isAlive());
+try
+{
+a1.join();
+}
+catch(Exception
+e){};
+try
+{
+a2.join();
+}
+catch(Exception
+e){};
+
+}
+System.out.println(a1.isAlive());
+System.out.println(a2.isAlive());
+}
+
+DARSHAN SONI
+S23-115
+JAVA Lab Assgno.14
+import javax.swing.*;
+import
+java.awt.event.*;
+import java.io.*; import
+java.awt.*;
+public class Notepad implements ActionListener {
+ JFrame frame;
+ JMenuBar menuBar;
+ JMenu fileMenu, editMenu, helpMenu;
+ JMenuItem cutItem, copyItem, pasteItem, selectAllItem, saveItem, newItem, renameItem,
+printItem; JTextArea textArea;
+ Notepad() { frame = new
+JFrame("Notepad"); menuBar =
+new JMenuBar();
+ fileMenu = new JMenu("File");
+editMenu = new JMenu("Edit");
+helpMenu = new JMenu("Help");
+ cutItem = new JMenuItem("Cut");
+copyItem = new JMenuItem("Copy");
+pasteItem = new JMenuItem("Paste");
+selectAllItem = new JMenuItem("Select All");
+saveItem = new JMenuItem("Save");
+newItem = new JMenuItem("New");
+renameItem = new JMenuItem("Rename");
+printItem = new JMenuItem("Print");
+ textArea = new JTextArea();
+textArea.setBounds(20, 20, 800, 800);
+ frame.add(textArea);
+frame.setJMenuBar(menuBar);
+ menuBar.add(fileMenu);
+menuBar.add(editMenu);
+menuBar.add(helpMenu);
+ fileMenu.add(newItem);
+fileMenu.add(saveItem);
+fileMenu.add(renameItem);
+fileMenu.add(printItem);
+ editMenu.add(cutItem);
+editMenu.add(copyItem);
+editMenu.add(pasteItem);
+editMenu.add(selectAllItem);
+ newItem.addActionListener(this);
+saveItem.addActionListener(this);
+renameItem.addActionListener(this);
+printItem.addActionListener(this);
+cutItem.addActionListener(this);
+copyItem.addActionListener(this);
+pasteItem.addActionListener(this);
+selectAllItem.addActionListener(this);
+frame.setLayout(null); frame.setSize(300,
+300); frame.setVisible(true);
+ }
+ public void actionPerformed(ActionEvent e) {
+if (e.getSource() == cutItem) {
+textArea.cut();
+ }
+ if (e.getSource() == copyItem) {
+textArea.copy();
+ }
+ if (e.getSource() == pasteItem) {
+textArea.paste();
+ }
+ if (e.getSource() == selectAllItem) {
+textArea.selectAll();
+ }
+ if (e.getSource() == newItem) {
+textArea.setText("");
+ }
+ if (e.getSource() == saveItem) {
+ JFileChooser fileChooser = new JFileChooser();
+int choice = fileChooser.showSaveDialog(frame);
+if (choice == JFileChooser.APPROVE_OPTION) {
+ try {
+ FileWriter fw = new
+FileWriter(fileChooser.getSelectedFile());
+fw.write(textArea.getText()); fw.close();
+ } catch (IOException ex) {
+ex.printStackTrace();
+ }
+ }
+ }
+if (e.getSource() == renameItem) {
+ JFileChooser fileChooser = new JFileChooser(); int
+choice = fileChooser.showSaveDialog(frame); if (choice ==
+JFileChooser.APPROVE_OPTION) {
+frame.setTitle(fileChooser.getSelectedFile().getName());
+ }
+ }
+ if (e.getSource() == printItem) {
+ try {
+textArea.print(); } catch
+(PrinterException ex) {
+ex.printStackTrace();
+ }
+ }
+ }
+ public static void main(String[] args) {
+new Notepad();
+ }
+}
+
+Darshan soni 115 s23
+JAVA FX
+Executable Code:-
+import javafx.application.Application;
+import javafx.event.Actionvent;
+import javats. event EventHandler;
+import javafx.geometry.Pos; import
+javafx.scene.Scene; import
+javafx.scene.control.Button; import
+javafx.scene.control.Label; import
+javafx.scene.control.Password:
+import javafx.scene.control.
+TestField; import
+javafx.scene.layout.Vox; import
+javafx.stage.Stage;
+public class First JavaFx extends Application{
+@Override
+public volt start(Stage primaryStage) throws Exception {
+VBox vb = new VBox(); vb.setSpacing(10);
+vb.setAlignment (Pos.CENTER); Label
+11 = new Label("Your Username");
+TextField tx1= new TextField();
+tx1.setMaxWidth(160);
+Label 12 = new Label("Your Password");
+PasswordField tx2 = new PasswordField;
+tx2.setMaxWidth(160);
+Button button = new Button("LOGIN"); TextField
+tx3= new TextField(); tx3.setMaxWidth(160);
+vb.getChildren().addAll(11, tx1, 12, tx2, bu button.setOnAction(new
+EventHandler<Actionvent)>(){
+@Override public void
+handle(ActionEvent arg0) {
+String userName = tx1.getText(); String
+password= tx2.getText();
+if (userName.equals("TSEC") && password.equals("bandra")) {
+tx3.setText("Login Successful");
+}
+else
+{
+tx3.setText("Invalid Password/Username");
+}
+};
+Scene scene=new Scene(vb,600,400); primaryStage.setTitle("First
+Javafx Application"); primaryStage.setTitle(scene);
+primaryStage.show();
+}
+public static void main(String[] args)
+{
+launch(args);
+}
+Aryan Maurya
+S21 Roll no. : 76
+WRITE UP 1
+OUTPUT:
+CODE:
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+public class NewClass extends JFrame {
+ private Connection con;
+ private JTable donationTable;
+ private DefaultTableModel tableModel;
+ private JTextField foodItemTextField;
+ private JTextField quantityTextField;
+ private JTextField doneeNameTextField;
+ private JTextField doneeContactTextField;
+ private JTextField doneeAddressTextField;
+ public NewClass() {
+ super("Donation Details");
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ // Initialize the database connection
+ try {
+ Class.forName("com.mysql.cj.jdbc.Driver");
+ con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aryan", "root", "Aryan");
+ } catch (ClassNotFoundException | SQLException ex) {
+ ex.printStackTrace();
+ }
+ // Create a panel for input fields and buttons
+ JPanel inputPanel = new JPanel(new GridBagLayout());
+ GridBagConstraints gbc = new GridBagConstraints();
+ gbc.anchor = GridBagConstraints.WEST;
+ gbc.insets = new Insets(5, 5, 5, 5);
+ foodItemTextField = new JTextField(20);
+ quantityTextField = new JTextField(20);
+ doneeNameTextField = new JTextField(20);
+ doneeContactTextField = new JTextField(20);
+ doneeAddressTextField = new JTextField(20);
+ JButton addButton = new JButton("Add Donation");
+ addButton.setBackground(new Color(255, 0, 255));
+ addButton.addActionListener(new ActionListener() {
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ addDonation();
+ }
+ });
+ gbc.gridx = 0;
+ gbc.gridy = 0;
+ inputPanel.add(new JLabel("Food Item:"), gbc);
+ gbc.gridx = 1;
+ gbc.gridy = 0;
+ inputPanel.add(foodItemTextField, gbc);
+ gbc.gridx = 0;
+ gbc.gridy = 1;
+ inputPanel.add(new JLabel("Quantity:"), gbc);
+ gbc.gridx = 1;
+ gbc.gridy = 1;
+ inputPanel.add(quantityTextField, gbc);
+ gbc.gridx = 0;
+ gbc.gridy = 2;
+ inputPanel.add(new JLabel("Donee Name:"), gbc);
+ gbc.gridx = 1;
+ gbc.gridy = 2;
+ inputPanel.add(doneeNameTextField, gbc);
+ gbc.gridx = 0;
+ gbc.gridy = 3;
+ inputPanel.add(new JLabel("Donee Contact:"), gbc);
+ gbc.gridx = 1;
+ gbc.gridy = 3;
+ inputPanel.add(doneeContactTextField, gbc);
+ gbc.gridx = 0;
+ gbc.gridy = 4;
+ inputPanel.add(new JLabel("Donee Address:"), gbc);
+ gbc.gridx = 1;
+ gbc.gridy = 4;
+ inputPanel.add(doneeAddressTextField, gbc);
+ gbc.gridx = 0;
+ gbc.gridy = 5;
+ gbc.gridwidth = 2;
+ inputPanel.add(addButton, gbc);
+ // Create a table to display donation records
+ String[] columnNames = {"Food Item", "Quantity", "Donee Name", "Donee Contact", "Donee
+Address"};
+ tableModel = new DefaultTableModel(columnNames, 0);
+ donationTable = new JTable(tableModel);
+ JScrollPane tableScrollPane = new JScrollPane(donationTable);
+ // Create a panel for buttons
+ JPanel buttonPanel = new JPanel();
+ buttonPanel.setBackground(new Color(255, 204, 204));
+ JButton clearButton = new JButton("Clear Fields");
+ clearButton.addActionListener(new ActionListener() {
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ clearFields();
+ }
+ });
+ JButton deleteButton = new JButton("Delete");
+ deleteButton.setBackground(new Color(255, 0, 255));
+ deleteButton.addActionListener(new ActionListener() {
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ deleteDonation();
+ }
+ });
+ addButton.setBackground(new Color(255, 0, 255));
+ clearButton.setBackground(new Color(255, 0, 255));
+ // Add components to the frame
+ setLayout(new BorderLayout());
+ add(inputPanel, BorderLayout.WEST); // Align input and buttons to the left
+ add(tableScrollPane, BorderLayout.CENTER); // Align the table to the right
+ buttonPanel.add(clearButton);
+ buttonPanel.add(addButton);
+ buttonPanel.add(deleteButton);
+ add(buttonPanel, BorderLayout.SOUTH);
+ // Set the frame size
+ setSize(800, 400);
+ // Position the frame in the center of the screen
+ setLocationRelativeTo(null);
+ showDonations();
+ }
+ private void addDonation() {
+ String foodItem = foodItemTextField.getText();
+ String quantity = quantityTextField.getText();
+ String doneeName = doneeNameTextField.getText();
+ String doneeContact = doneeContactTextField.getText();
+ String doneeAddress = doneeAddressTextField.getText();
+ if (foodItem.isEmpty() || quantity.isEmpty() || doneeName.isEmpty() ||
+doneeContact.isEmpty() || doneeAddress.isEmpty()) {
+ JOptionPane.showMessageDialog(this, "All fields are required");
+ return;
+ }
+ try {
+ PreparedStatement pst = con.prepareStatement("INSERT INTO donation_details VALUES
+(?, ?, ?, ?, ?");
+ pst.setString(1, foodItem);
+ pst.setString(2, quantity);
+ pst.setString(3, doneeName);
+ pst.setString(4, doneeContact);
+ pst.setString(5, doneeAddress);
+ pst.executeUpdate();
+ JOptionPane.showMessageDialog(this, "Donation Added Successfully");
+ clearFields();
+ showDonations();
+ } catch (SQLException ex) {
+ ex.printStackTrace();
+ }
+ }
+ private void showDonations() {
+ tableModel.setRowCount(0);
+ try {
+ PreparedStatement pst = con.prepareStatement("SELECT * FROM donation_details");
+ ResultSet rs = pst.executeQuery();
+ while (rs.next()) {
+ String foodItem = rs.getString("Food item");
+ String quantity = rs.getString("Qauntity");
+ String doneeName = rs.getString("Donee_name");
+ String doneeContact = rs.getString("Donee_contact");
+ String doneeAddress = rs.getString("Donee_address");
+ tableModel.addRow(new Object[]{foodItem, quantity, doneeName, doneeContact,
+doneeAddress});
+ }
+ } catch (SQLException ex) {
+ ex.printStackTrace();
+ }
+ }
+ private void clearFields() {
+ foodItemTextField.setText("");
+ quantityTextField.setText("");
+ doneeNameTextField.setText("");
+ doneeContactTextField.setText("");
+ doneeAddressTextField.setText("");
+ }
+ private void deleteDonation() {
+ int selectedRow = donationTable.getSelectedRow();
+ if (selectedRow != -1) {
+ String doneeContact = (String) tableModel.getValueAt(selectedRow, 3);
+ try {
+ PreparedStatement pst = con.prepareStatement("DELETE FROM donation_details
+WHERE Donee_contact = ?");
+ pst.setString(1, doneeContact);
+ pst.executeUpdate();
+ JOptionPane.showMessageDialog(this, "Donation Deleted Successfully");
+ showDonations();
+ } catch (SQLException ex) {
+ ex.printStackTrace();
+ }
+ } else {
+ JOptionPane.showMessageDialog(this, "Please select a donation to delete");
+ }
+ }
+ public static void main(String[] args) {
+ SwingUtilities.invokeLater(new Runnable() {
+ @Override
+ public void run() {
+ new NewClass().setVisible(true);
+ }
+ });
+
+}
+}
+z
+Apna Kirana
+An admin side Supermarket management Application
+z
+User Interface
+z
+z
+z
+z
+z
+z
